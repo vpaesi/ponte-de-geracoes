@@ -1,0 +1,110 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Arquivo de Uploads
+/uploads/
+
+# Diretórios de build do Maven
+/target/
+/*.iml
+
+# Arquivos de dependências gerados pelo Maven
+/.mvn/
+mvnw
+mvnw.cmd
+
+# Arquivos de configuração local (exemplo: banco de dados, variáveis de ambiente)
+*.env
+
+# Arquivos de configuração do IDE
+/.idea/
+
+# Arquivos temporários do Spring Boot
+spring-boot-devtools.properties
+
+# Arquivos de configuração do Maven (perfil de desenvolvimento e testes)
+application-dev.properties
+application-test.properties
+application-prod.properties
+
+# Arquivos gerados pelo Eclipse
+.settings/
+
+# Arquivos gerados pelo IntelliJ
+*.iws
+*.ipr
+*.iml
+
+# Banco de dados H2 (arquivo de banco de dados em memória)
+*.h2.db
+
+# Outros arquivos específicos do sistema operacional
+Thumbs.db
+ehthumbs.db
+
+# Arquivos sensíveis e configurações de ambientes específicos
+.env
+
+# Gerar dados do banco de dados em memória (H2 ou outros)
+*.db
+
+# Diretórios de build de teste
+/test-output/
+
+### IDES ###
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
