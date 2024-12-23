@@ -1,6 +1,6 @@
+import "./index.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header.tsx";
 import Footer from "./components/footer/Footer.tsx";
@@ -12,7 +12,7 @@ import RegisteredPage from "./pages/registered-page/RegisteredPage.tsx";
 import ProfilePage from "./pages/profile-page/ProfilePage.tsx";
 import { UserProvider } from "./utils/UserContext.tsx";
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
     <UserProvider>
       <BrowserRouter>

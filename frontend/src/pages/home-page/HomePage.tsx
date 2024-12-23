@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./HomePage.css";
-import "../../components/benefit-card/BenefitCard.css";
 import { Images } from "../../assets/Images";
 import { Link } from "react-router-dom";
 import Carousel from "../../components/carousel/Carousel";
@@ -10,7 +8,14 @@ import BenefitsForHelpers from "../../components/benefit-card/BenefitsForHelpers
 import { useUser } from "../../utils/UserContext";
 
 const App: React.FC = () => {
-  const [helpers, setHelpers] = useState<any[]>([]);
+  interface Helper {
+    name: string;
+    birthDate: string;
+    profileImageUrl: string;
+    aboutYou: string;
+  }
+
+  const [helpers, setHelpers] = useState<Helper[]>([]);
   const { user } = useUser();
   const { userType } = user || {};
 

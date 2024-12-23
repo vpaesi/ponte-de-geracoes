@@ -1,4 +1,3 @@
-import "./RegisteredPage.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import urlFetch from "../../components/fetch/Fetch";
@@ -34,6 +33,7 @@ const RegisteredPage: React.FC = () => {
   const [registered, setRegistered] = useState<Registered[]>([]);
   const [page, setPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(1);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [totalItems, setTotalItems] = useState<number>(0);
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState<string>("");

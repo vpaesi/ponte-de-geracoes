@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./RegisterPage.css";
 import { Link } from "react-router-dom";
 import { handleCepBlur } from "../../utils/validate-cep/ValidadeCep";
 import { validateFields } from "../../utils/validate-fields/ValidateFields";

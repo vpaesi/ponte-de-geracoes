@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import urlFetch from "../../components/fetch/Fetch";
-import "./ProfilePage.css";
 import { Link } from "react-router-dom";
 import { useUser } from "../../utils/UserContext";
 interface Address {
