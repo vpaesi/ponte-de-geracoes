@@ -1,56 +1,36 @@
-# Nome do workflow
 name: Node.js CI
 
-# Disparo do workflow
 on:
   push:
-    branches: [ "main", "develop", "homolog" ]
+    branches: ["*"]
   pull_request:
-    branches: [ "main", "develop", "homolog" ]
+    branches: ["*"]
 
-# Definição dos jobs
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x] # Testa diferentes versões do Node.js
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
-      # Baixar o código do repositório
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Configurar a versão do Node.js com cache de dependências
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
 
-      # Instalar dependências
       - name: Install dependencies
         run: npm ci
 
-      # Construir o projeto, se aplicável
       - name: Build project
-        run: npm run build --if-present
+        run: npm run build
 
-      # Executar testes
       - name: Run tests
-        run: npm test
+        run: npm run test
 
-  deploy:
-    needs: build-and-test # Só roda se os testes passarem
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' # Apenas para branch 'main'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy to Production
-        run: |
-          echo "Realizando deploy..."
-          # Comandos de deploy (ex.: subir build para servidor ou serviço)
+      - name: Deploy
+        run: npm run deploy
