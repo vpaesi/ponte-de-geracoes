@@ -111,13 +111,18 @@ Certifique-se de ter os seguintes programas instalados:
 
 1. Clone o repositório:
 ```bash
-  git clone https://github.com/your-repo/project-name.git
+  git clone hhttps://github.com/vpaesi/ponte-de-geracoes.git
 ```
 
 2. Acesse o diretório do projeto:
 ```bash
-  cd project-name
+  cd project-ponte_de_geracoes
 ```
+3. Certifique-se de ter instalado:
+* Maven Apache OU
+* Maven Apache Daemon
+
+Caso tenha o Daemon em sua máquina, o comando é `mvnd` no lugar de `mvn`
 
 4. Instale as dependências do backend:
 ```bash

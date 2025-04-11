@@ -89,7 +89,7 @@ Se você não tem certeza se tem o Node instalado, execute:
 
 1. Clone o repositório:
 ```bash
-  git clone https://github.com/lucasdemattos8/project-ponte_de_geracoes/
+  git clone https://github.com/vpaesi/ponte-de-geracoes.git
 ```
 
 2. Acesse o diretório do projeto:
