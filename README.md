@@ -104,19 +104,19 @@ Certifique-se de ter os seguintes programas instalados:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/lucasdemattos8/project-ponte_de_geracoes.git
+  git clone hhttps://github.com/vpaesi/ponte-de-geracoes.git
    ```
 
 2. **Backend**: 
    ```bash
-   cd project-ponte_de_geracoes/backend
+   cd project-ponte_de_geracoes/Back-end
    mvn install
    mvn spring-boot:run
    ```
 
 3. **Frontend**:
    ```bash
-   cd project-ponte_de_geracoes/frontend
+   cd project-ponte_de_geracoes/Front-end
    npm install
    npm run dev
    ```
