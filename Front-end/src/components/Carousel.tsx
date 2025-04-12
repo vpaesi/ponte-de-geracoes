@@ -1,4 +1,5 @@
 import React from "react";
+import StyledButton from "./StyledButton";
 
 interface RegisteredCarousel {
   name: string;
@@ -43,9 +44,7 @@ const Carousel: React.FC<CarouselProps> = ({ title, registered }) => {
     <section className="row my-3">
       <h2 className="text-center">{title}</h2>
       <div className="d-flex justify-content-center align-items-center">
-        <button className="btn btn-outline-primary me-2" onClick={handlePrev}>
-          &#11164;
-        </button>
+        <StyledButton onClick={handlePrev}>&#11164;</StyledButton>
         <div className="d-flex overflow-hidden" style={{ width: "80%" }}>
           {getVisibleItems().map((item, index) => (
             <div
@@ -63,9 +62,7 @@ const Carousel: React.FC<CarouselProps> = ({ title, registered }) => {
             </div>
           ))}
         </div>
-        <button className="btn btn-outline-primary ms-2" onClick={handleNext}>
-          &#11166;
-        </button>
+        <StyledButton onClick={handleNext}>&#11166;</StyledButton>
       </div>
     </section>
   );
