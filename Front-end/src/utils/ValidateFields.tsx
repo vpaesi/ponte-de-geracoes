@@ -1,5 +1,5 @@
-import isCPF from "../validate-cpf/ValidateCPF";
-import isAdult from "../validate-age/ValidateAge";
+import isCPF from "./ValidateCPF";
+import isAdult from "./ValidateAge";
 
 interface Address {
   street: string;

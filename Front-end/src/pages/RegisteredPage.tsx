@@ -1,8 +1,6 @@
-import "./RegisteredPage.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import urlFetch from "../../components/fetch/Fetch";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import urlFetch from "../components/Fetch";
 import { Link } from "react-router-dom";
 
 interface Address {
@@ -47,21 +45,24 @@ const RegisteredPage: React.FC = () => {
         setLoading(true);
 
         // Buscar os ajudantes e ajudados para determinar as cidades disponíveis
-        const helperResponse = await axios.get<{
-          content: Registered[];
-        }>(`${urlFetch}/helper`, { params: { size: 1000 } });
+        const helperResponse = await axios.get<{ content: Registered[] }>(
+          `${urlFetch}/helper`,
+          { params: { size: 1000 } }
+        );
 
-        const assistedResponse = await axios.get<{
-          content: Registered[];
-        }>(`${urlFetch}/assisted`, { params: { size: 1000 } });
+        const assistedResponse = await axios.get<{ content: Registered[] }>(
+          `${urlFetch}/assisted`,
+          { params: { size: 1000 } }
+        );
 
         // Extrair cidades de ambos os conjuntos de dados
-        const helperCities = helperResponse.data.content.map(
-          (person) => person.address.city
-        );
-        const assistedCities = assistedResponse.data.content.map(
-          (person) => person.address.city
-        );
+        const helperCities = helperResponse?.data?.content?.map(
+          (person) => person.address?.city || ""
+        ) || [];
+
+        const assistedCities = assistedResponse?.data?.content?.map(
+          (person) => person.address?.city || ""
+        ) || [];
 
         // Combinar e remover duplicatas
         const uniqueCities = Array.from(new Set([...helperCities, ...assistedCities]))
@@ -98,8 +99,8 @@ const RegisteredPage: React.FC = () => {
 
         if (response.status === 200 && response.data) {
           setRegistered(response.data.content || []);
-          setTotalPages(response.data.page.totalPages || 1);
-          setTotalItems(response.data.page.totalElements || 0);
+          setTotalPages(response.data?.page?.totalPages || 1);
+          setTotalItems(response.data?.page?.totalElements || 0);
         } else {
           console.error("Erro ao buscar dados. Status:", response.status);
         }
@@ -170,7 +171,7 @@ const RegisteredPage: React.FC = () => {
                   <img
                     src={person.profileImageUrl || "default-profile.jpg"}
                     className="card-img"
-                    alt={person.name}
+                    alt={person.name || "Usuário"}
                   />
                 </div>
                 <div className="card-content">
@@ -183,7 +184,7 @@ const RegisteredPage: React.FC = () => {
                   <div className="card-address">
                     <i className="fas fa-location-dot"></i>
                     {person.address.city}/RS
-                    <p className="card-text">{person.aboutYou}</p>
+                    <p className="card-text">{person.aboutYou || "Sem descrição disponível."}</p>
                   </div>
                 </div>
               </div>

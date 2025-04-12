@@ -1,5 +1,5 @@
-import { Images } from '../../assets/Images';
-import BenefitCard from '../../components/benefit-card/BenefitCard';
+import { Images } from '../assets/Images';
+import BenefitCard from '../components/BenefitCard';
 
 const BenefitsForHelpers = () => {
   const benefitsForHelpers = [

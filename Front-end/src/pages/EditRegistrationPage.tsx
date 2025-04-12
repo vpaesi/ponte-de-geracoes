@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../register-page/RegisterPage.css";
 import { useNavigate } from "react-router-dom";
-import { handleCepBlur } from "../../utils/validate-cep/ValidadeCep";
-import { validateFields } from "../../utils/validate-fields/ValidateFields";
-import urlFetch from "../../components/fetch/Fetch";
-import { useUser } from "../../utils/UserContext";
+import { handleCepBlur } from "../utils/ValidadeCep";
+import { validateFields } from "../utils/ValidateFields";
+import urlFetch from "../components/Fetch";
+import { useUser } from "../utils/UserContext";
 
 const EditRegistrationPage: React.FC = () => {
   const { user } = useUser();

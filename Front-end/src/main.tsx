@@ -2,14 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./components/header/Header.tsx";
-import Footer from "./components/footer/Footer.tsx";
-import HomePage from "./pages/home-page/HomePage.tsx";
-import RegisterPage from "./pages/register-page/RegisterPage.tsx";
-import EditRegistrationPage from "./pages/edit-registration/EditRegistrationPage.tsx";
-import LoginPage from "./pages/login-page/LoginPage.tsx";
-import RegisteredPage from "./pages/registered-page/RegisteredPage.tsx";
-import ProfilePage from "./pages/profile-page/ProfilePage.tsx";
+import Header from "./components/Header.tsx";
+import Footer from "./components/Footer.tsx";
+import HomePage from "./pages/HomePage.tsx";
+import RegisterPage from "./pages/RegisterPage.tsx";
+import EditRegistrationPage from "./pages/EditRegistrationPage.tsx";
+import LoginPage from "./pages/LoginPage.tsx";
+import RegisteredPage from "./pages/RegisteredPage.tsx";
+import ProfilePage from "./pages/ProfilePage.tsx";
 import { UserProvider } from "./utils/UserContext.tsx";
 
 createRoot(document.getElementById("root")!).render(

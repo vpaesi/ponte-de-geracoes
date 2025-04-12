@@ -1,5 +1,4 @@
 import React from "react";
-import "./BenefitCard.css";
 
 interface BenefitCardProps {
   title: string;

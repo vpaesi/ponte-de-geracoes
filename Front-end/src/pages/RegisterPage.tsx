@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./RegisterPage.css";
 import { Link } from "react-router-dom";
-import { handleCepBlur } from "../../utils/validate-cep/ValidadeCep";
-import { validateFields } from "../../utils/validate-fields/ValidateFields";
+import { handleCepBlur } from "../utils/ValidadeCep";
+import { validateFields } from "../utils/ValidateFields";
 
 const RegisterPage: React.FC = () => {
   const [name, setName] = useState<string>("");
