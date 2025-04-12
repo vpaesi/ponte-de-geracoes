@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Images } from "../assets/Images";
 import Carousel from "../components/Carousel";
 import urlFetch from "../components/Fetch";
 import BenefitsForAssisted from "../components/BenefitsForAssisted";
@@ -37,53 +36,52 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <section className="container mx-auto flex flex-col md:flex-row items-center justify-between py-16 px-6">
-        <div className="text-center md:text-left">
-          <h1 className="text-4xl font-bold text-gray-800">
+    <div className="bg-light min-vh-100">
+      <section className="container d-flex flex-column flex-md-row align-items-center justify-content-between py-5 px-3">
+        <div className="text-center text-md-start">
+          <h1 className="display-4 fw-bold text-dark">
             Pontes que aproximam e transformam vidas.
           </h1>
-          <p className="text-gray-600 mt-4">
+          <p className="text-secondary mt-3">
             Ponte de Gerações é uma plataforma gaúcha que conecta idosos com
             necessidades específicas a pessoas dispostas a ajudar.
           </p>
-          <div className="mt-6">
+          <div className="mt-4">
             {userType === "default" ? (
               <Link
                 to="/register"
-                className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
+                className="btn btn-primary btn-lg"
               >
                 Suba agora nessa ponte
               </Link>
             ) : (
-              <Link
+                <Link
                 to="/registered"
-                className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition"
-              >
+                className="btn btn-lg"
+                style={{ 
+                  backgroundColor: "hsl(11deg 59.61% 75.95%)", 
+                  transition: "background-color 0.3s ease" 
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "hsl(11deg 59.61% 65%)"}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "hsl(11deg 59.61% 75.95%)"}
+                >
                 Conheça nossos cadastrados
-              </Link>
+                </Link>
             )}
           </div>
-        </div>
-        <div className="mt-10 md:mt-0">
-          <img
-            src={Images.headerImg}
-            alt="Imagem do cabeçalho"
-            className="rounded-lg shadow-lg"
-          />
-        </div>
+        </div>       
       </section>
 
       <hr />
 
-      <section className="row row-2">
-        <h2>Benefícios para os ajudados</h2>
+      <section className="container my-5">
+        <h2 className="text-center">Benefícios para os ajudados</h2>
         <BenefitsForAssisted />
       </section>
 
       <hr />
 
-      <section className="row row-3">
+      <section className="container my-5">
         <Carousel
           title="Conheça alguns dos nossos ajudantes"
           registered={helpers.map((helper) => ({
@@ -95,15 +93,17 @@ const HomePage = () => {
             description: helper.aboutYou,
           }))}
         />
-        <Link to={"/registered"} className="row3-link">
-          Conheça mais ajudantes
-        </Link>
+        <div className="text-center mt-3">
+          <Link to={"/registered"} className="btn btn-link">
+            Conheça mais ajudantes
+          </Link>
+        </div>
       </section>
 
       <hr />
 
-      <section className="row row-4">
-        <h2>Benefícios para os ajudantes</h2>
+      <section className="container my-5">
+        <h2 className="text-center">Benefícios para os ajudantes</h2>
         <BenefitsForHelpers />
       </section>
     </div>

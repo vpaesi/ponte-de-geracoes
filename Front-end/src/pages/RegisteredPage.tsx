@@ -32,7 +32,7 @@ const RegisteredPage: React.FC = () => {
   const [registered, setRegistered] = useState<Registered[]>([]);
   const [page, setPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [totalItems, setTotalItems] = useState<number>(0);
+  const [, setTotalItems] = useState<number>(0);
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string>("helper");
@@ -121,120 +121,129 @@ const RegisteredPage: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <div className="header-registered">
-        <h3>Conheça os usuários cadastrados da Ponte de Gerações</h3>
-      </div>
-
-      <div className="filters">
-        <div className="user-filter">
-          <label htmlFor="user-filter">Filtrar por tipo de usuário:</label>
-          <select
-            value={selectedUser}
-            onChange={(e) => {
-              setSelectedUser(e.target.value);
-              setPage(0);
-            }}
-          >
-            <option value="assisted">Ajudados</option>
-            <option value="helper">Ajudantes</option>
-          </select>
+    <>
+      <div className="container">
+        <div className="text-center my-4">
+          <h3>Conheça os usuários cadastrados da Ponte de Gerações</h3>
         </div>
 
-        <div className="city-filter">
-          <label htmlFor="city-filter">Filtrar por cidade:</label>
-          <select
-            value={selectedCity}
-            onChange={(e) => {
-              setSelectedCity(e.target.value);
-              setPage(0);
-            }}
-          >
-            <option value="">Todas as cidades</option>
-            {cities.map((city, index) => (
-              <option key={index} value={city}>
-                {city}
-              </option>
-            ))}
-          </select>
+      <div className="row mb-4">
+        <div className="col-md-6">
+        <label htmlFor="user-filter" className="form-label">
+          Filtrar por tipo de usuário:
+        </label>
+        <select
+          className="form-select"
+          value={selectedUser}
+          onChange={(e) => {
+            setSelectedUser(e.target.value);
+            setPage(0);
+          } }
+        >
+          <option value="assisted">Ajudados</option>
+          <option value="helper">Ajudantes</option>
+        </select>
+      </div>
+
+      <div className="col-md-6"></div>
+    <label htmlFor="city-filter" className="form-label">
+      Filtrar por cidade:
+    </label>
+    <select
+      className="form-select"
+      value={selectedCity}
+      onChange={(e) => {
+        setSelectedCity(e.target.value);
+        setPage(0);
+      } }
+    >
+        <option value="">Todas as cidades</option>
+        {cities.map((city, index) => (
+          <option key={index} value={city}>
+            {city}
+          </option>
+        ))}
+      </select>
         </div>
       </div>
 
-      <div className="cards-container">
+      <div className="row">
         {loading ? (
-          <p>Carregando...</p>
+          <div className="text-center">
+            <p>Carregando...</p>
+          </div>
         ) : registered.length > 0 ? (
           registered.map((person) => (
-            <div className="card" key={person.id}>
-              <div className="card-body">
-                <div className="card-image-container">
-                  <img
-                    src={person.profileImageUrl || "default-profile.jpg"}
-                    className="card-img"
-                    alt={person.name || "Usuário"}
-                  />
-                </div>
-                <div className="card-content">
+            <div className="col-md-4 mb-4" key={person.id}>
+              <div className="card h-100">
+                <img
+                  src={person.profileImageUrl || "default-profile.jpg"}
+                  className="card-img-top"
+                  alt={person.name || "Usuário"}
+                />
+                <div className="card-body">
                   <h5 className="card-title">
                     {person.name},{" "}
                     {new Date().getFullYear() -
                       new Date(person.birthDate).getFullYear()}{" "}
                     anos
                   </h5>
-                  <div className="card-address">
-                    <i className="fas fa-location-dot"></i>
-                    {person.address.city}/RS
-                    <p className="card-text">{person.aboutYou || "Sem descrição disponível."}</p>
-                  </div>
+                  <p className="card-text">
+                    <i className="fas fa-location-dot"></i> {person.address.city}/RS
+                  </p>
+                  <p className="card-text">
+                    {person.aboutYou || "Sem descrição disponível."}
+                  </p>
                 </div>
-              </div>
-              <div className="card-available">
-                <p>
-                  <b>Disponível nos dias:</b>
-                  <br />
-                  {person.availableDays.join(", ")}
-                </p>
-                <Link to={`/profile/${person.id}`} className="link-profile">
-                  Entrar em contato
-                </Link>
+                <div className="card-footer">
+                  <p>
+                    <b>Disponível nos dias:</b> {person.availableDays.join(", ")}
+                  </p>
+                  <Link to={`/profile/${person.id}`} className="btn btn-primary w-100">
+                    Entrar em contato
+                  </Link>
+                </div>
               </div>
             </div>
           ))
         ) : (
-          <p>Nenhum dado encontrado.</p>
+          <div className="text-center">
+            <p>Nenhum dado encontrado.</p>
+          </div>
         )}
       </div>
 
-      <div className="pagination">
-        <span
-          onClick={() => handlePageChange(page - 1)}
-          className={`page-arrow ${page === 0 ? "disabled" : ""}`}
-        >
-          <i className="fas fa-chevron-left"></i>
-        </span>
+      <div className="d-flex justify-content-between align-items-center my-4">
+          <button
+            className="btn btn-outline-primary"
+            onClick={() => handlePageChange(page - 1)}
+            disabled={page === 0}
+          >
+            <i className="fas fa-chevron-left"></i> Anterior
+          </button>
 
-        <span>
-          Página {page + 1} de {totalPages}
-        </span>
+          <span>
+            Página {page + 1} de {totalPages}
+          </span>
 
-        <span
-          onClick={() => handlePageChange(page + 1)}
-          className={`page-arrow ${page + 1 >= totalPages ? "disabled" : ""}`}
-        >
-          <i className="fas fa-chevron-right"></i>
-        </span>
+          <button
+            className="btn btn-outline-primary"
+            onClick={() => handlePageChange(page + 1)}
+            disabled={page + 1 >= totalPages}
+          >
+            Próxima <i className="fas fa-chevron-right"></i>
+          </button>
+        <div className="text-center mt-4">
+            <p>
+              Ponte de Gerações é uma plataforma gaúcha que conecta idosos com
+              necessidades específicas a pessoas dispostas a ajudar.
+            </p>
+            <a href="/register" className="btn btn-success">
+              Suba agora nessa ponte
+            </a>
+          </div>
       </div>
-
-      <div className="footer-registered">
-        <p>
-          Ponte de Gerações é uma plataforma gaúcha que conecta idosos com
-          necessidades específicas a pessoas dispostas a ajudar.
-        </p>
-        <a href="/register" className="footer-registered_btn">
-          Suba agora nessa ponte
-        </a>
-      </div>
-    </div>
+    </>
   );
 };
 

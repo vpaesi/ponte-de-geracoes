@@ -36,14 +36,19 @@ const BenefitsForHelpers = () => {
   ];
 
   return (
-    <section className="benefits-section">
+    <section className="benefits-section row">
       {benefitsForHelpers.map((benefit, index) => (
+      <div key={index} className="col-md-4 mb-4">
         <BenefitCard
-          key={index}
-          title={benefit.title}
-          description={benefit.description}
-          icon={benefit.icon}
+        title={
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img src={benefit.icon} alt="" style={{ marginRight: '8px' }} />
+          {benefit.title}
+          </div>
+        }
+        description={benefit.description}
         />
+      </div>
       ))}
     </section>
   );

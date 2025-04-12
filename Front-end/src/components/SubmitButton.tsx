@@ -6,7 +6,7 @@ interface SubmitButtonProps {
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ label }) => {
   return (
-    <button type="submit" className="submit-button">
+    <button type="submit" className="btn btn-primary">
       {label}
     </button>
   );

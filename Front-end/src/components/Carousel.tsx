@@ -40,25 +40,30 @@ const Carousel: React.FC<CarouselProps> = ({ title, registered }) => {
   };
 
   return (
-    <section className="row row-3">
-      <h2>{title}</h2>
-      <div className="carousel-container">
-        <button className="carousel-button prev" onClick={handlePrev}>
+    <section className="row my-3">
+      <h2 className="text-center">{title}</h2>
+      <div className="d-flex justify-content-center align-items-center">
+        <button className="btn btn-outline-primary me-2" onClick={handlePrev}>
           &#11164;
         </button>
-        <div className="carousel">
+        <div className="d-flex overflow-hidden" style={{ width: "80%" }}>
           {getVisibleItems().map((item, index) => (
             <div
-              className={`carousel-item ${item.isVisible ? "visible" : "hidden"}`}
+              className={`carousel-item ${item.isVisible ? "d-block" : "d-none"}`}
               key={index}
+              style={{ flex: "0 0 auto", width: "25%" }}
             >
-              <img src={item.img} alt={`Foto de ${item.name}`} />
-              <h3>{`${item.name}, ${item.age} anos`}</h3>
-              <p>{item.description}</p>
+              <img
+                src={item.img}
+                alt={`Foto de ${item.name}`}
+                className="img-fluid rounded"
+              />
+              <h3 className="text-center mt-2">{`${item.name}, ${item.age} anos`}</h3>
+              <p className="text-center">{item.description}</p>
             </div>
           ))}
         </div>
-        <button className="carousel-button next" onClick={handleNext}>
+        <button className="btn btn-outline-primary ms-2" onClick={handleNext}>
           &#11166;
         </button>
       </div>

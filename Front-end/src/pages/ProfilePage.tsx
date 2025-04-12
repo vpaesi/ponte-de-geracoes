@@ -54,79 +54,88 @@ const ProfilePage: React.FC = () => {
   }
 
   return (
-    <div className="profile-page">
-      <img
-        src={userProfile.profileImageUrl}
-        alt={`Foto de perfil de ${userProfile.name}`}
-        className="profile-page-img"
-      />
-      <Link to={"/edit-registration"} className="link-edit-registration">
-        Editar perfil
-      </Link>
-      {/* <Link to = {`/edit-registration/${userId}`}>Editar perfil</Link> */}
-      <div className="all-information">
-        <div className="personal-information">
-          <h1>Dados pessoais</h1>
-          <p>
-            <b>Nome:</b> {userProfile.name}
-          </p>
-          <p>
-            <b>Data de nascimento:</b>{" "}
-            {new Date(userProfile.birthDate).toLocaleDateString()}
-          </p>
-          <p>
-            <b>RG: </b>
-            {userProfile.rg}
-          </p>
-          <p>
-            <b>CPF:</b> {userProfile.cpf}
-          </p>
-          <p>
-            <b>Telefone:</b> {userProfile.phone}
-          </p>
-          <p>
-            <b>Email:</b> {userProfile.email}
-          </p>
-        </div>
+    <><div className="container mt-5">
+      <div className="text-center mb-4">
+        <img
+          src={userProfile.profileImageUrl}
+          alt={`Foto de perfil de ${userProfile.name}`}
+          className="rounded-circle img-thumbnail"
+          style={{ width: "150px", height: "150px" }} />
+        <Link to={"/edit-registration"} className="btn btn-primary mt-3">
+          Editar perfil
+        </Link>
+      </div>
 
-        <div className="personal-address">
-          <h1>Endereço</h1>
-          <p>
-            <b>Cidade:</b> {userProfile.address.city}/RS
-          </p>
-          <p>
-            <b>CEP: </b>
-            {userProfile.address.zipCode}
-          </p>
-          <p>
-            <b>Logradouro: </b>
-            {userProfile.address.street}
-          </p>
-          <p>
-            <b>Número: </b>
-            {userProfile.address.number}
-          </p>
-          <p>
-            <b>Complemento: </b>
-            {userProfile.address.complement}
-          </p>
+      <div className="row">
+        <div className="col-md-6 mb-4">
+          <div className="card"></div>
+          <div className="card-header">
+            <h5>Dados pessoais</h5>
+          </div>
+          <div className="card-body">
+            <p>
+              <b>Nome:</b> {userProfile.name}
+            </p>
+            <p>
+              <b>Data de nascimento:</b>{" "}
+              {new Date(userProfile.birthDate).toLocaleDateString()}
+            </p>
+            <p>
+              <b>RG:</b> {userProfile.rg}
+            </p>
+            <p>
+              <b>CPF:</b> {userProfile.cpf}
+            </p>
+            <p>
+              <b>Telefone:</b> {userProfile.phone}
+            </p>
+            <p>
+              <b>Email:</b> {userProfile.email}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="availability-skills">
-        <h1>Disponibilidade e habilidades</h1>
-        <p>
-          <b>Dias disponíveis:</b> {userProfile.availableDays.join(", ")}
-        </p>
-        <p>
-          <b>Habilidades: </b>
-          {userProfile.aboutYou}
-        </p>
-        <p>
-          <b>Disponível para ajudar:</b> {userProfile.available ? "Sim" : "Não"}
-        </p>
+      <div className="col-md-6 mb-4">
+        <div className="card">
+          <div className="card-header">
+            <h5>Endereço</h5>
+          </div>
+          <div className="card-body">
+            <p>
+              <b>Cidade:</b> {userProfile.address.city}/RS
+            </p>
+            <p>
+              <b>CEP:</b> {userProfile.address.zipCode}
+            </p>
+            <p>
+              <b>Logradouro:</b> {userProfile.address.street}
+            </p>
+            <p>
+              <b>Número:</b> {userProfile.address.number}
+            </p>
+            <p>
+              <b>Complemento:</b> {userProfile.address.complement}
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </div><div className="card">
+        <div className="card-header">
+          <h5>Disponibilidade e habilidades</h5>
+        </div>
+        <div className="card-body">
+          <p>
+            <b>Dias disponíveis:</b> {userProfile.availableDays.join(", ")}
+          </p>
+          <p>
+            <b>Habilidades:</b> {userProfile.aboutYou}
+          </p>
+          <p>
+            <b>Disponível para ajudar:</b> {userProfile.available ? "Sim" : "Não"}
+          </p>
+        </div>
+      </div></>
   );
 };
 

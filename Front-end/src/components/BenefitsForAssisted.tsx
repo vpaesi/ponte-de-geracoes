@@ -36,15 +36,22 @@ const BenefitsForAssisted = () => {
   ];
 
   return (
-    <section className="benefits-section">
+    <section className="benefits-section container my-5">
+      <div className="row">
       {benefitsForHelped.map((benefit, index) => (
+        <div key={index} className="col-md-4 mb-4">
         <BenefitCard
-          key={index}
-          title={benefit.title}
+          title={
+          <div className="d-flex align-items-center">
+            <img src={benefit.icon} alt="" className="me-2" />
+            {benefit.title}
+          </div>
+          }
           description={benefit.description}
-          icon={benefit.icon}
         />
+        </div>
       ))}
+      </div>
     </section>
   );
 };
