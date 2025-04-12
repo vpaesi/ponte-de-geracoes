@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useUser } from "../utils/UserContext";
 import { useNavigate } from "react-router-dom";
+import SubmitButton from "../components/SubmitButton";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -139,9 +140,7 @@ const Login: React.FC = () => {
           <div className="forgot-password">
             <a href="#">Esqueceu sua senha?</a>
           </div>
-          <button type="submit" className="btn-primary">
-            ENTRAR
-          </button>
+          <SubmitButton label="Fazer Login" />
         </form>
         <div className="signup-link">
           <p>

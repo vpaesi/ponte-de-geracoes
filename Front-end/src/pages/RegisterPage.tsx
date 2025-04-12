@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { handleCepBlur } from "../utils/ValidadeCep";
 import { validateFields } from "../utils/ValidateFields";
+import SubmitButton from "../components/SubmitButton";
 
 const RegisterPage: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -520,9 +521,7 @@ const RegisterPage: React.FC = () => {
           </div>
         </fieldset>
 
-        <button type="submit" className="submit-button">
-          Finalizar cadastro
-        </button>
+        <SubmitButton label="Finalizar cadastro" />
       </form>
     </div>
   );

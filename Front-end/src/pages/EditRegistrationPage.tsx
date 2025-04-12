@@ -4,6 +4,7 @@ import { handleCepBlur } from "../utils/ValidadeCep";
 import { validateFields } from "../utils/ValidateFields";
 import urlFetch from "../components/Fetch";
 import { useUser } from "../utils/UserContext";
+import SubmitButton from "../components/SubmitButton";
 
 const EditRegistrationPage: React.FC = () => {
   const { user } = useUser();
@@ -558,9 +559,7 @@ const EditRegistrationPage: React.FC = () => {
           </div>
         </fieldset>
 
-        <button type="submit" className="submit-button">
-          Salvar Alterações
-        </button>
+        <SubmitButton label="Atualizar cadastro" />
       </form>
     </div>
   );
