@@ -11,6 +11,7 @@ import EditRegistrationPage from "./pages/EditRegistrationPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisteredPage from "./pages/RegisteredPage.tsx";
 import ProfilePage from "./pages/ProfilePage.tsx";
+import AboutPage from "./pages/AboutPage.tsx";
 import { UserProvider } from "./utils/UserContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registered" element={<RegisteredPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
