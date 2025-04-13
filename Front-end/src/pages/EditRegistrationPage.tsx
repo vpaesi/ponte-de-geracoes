@@ -4,6 +4,7 @@ import { validateFields } from "../utils/ValidateFields";
 import urlFetch from "../components/Fetch";
 import { useUser } from "../utils/UserContext";
 import SubmitButton from "../components/SubmitButton";
+import Filters from "../components/Filters";
 
 const EditRegistrationPage: React.FC = () => {
   const { user } = useUser();
@@ -30,7 +31,8 @@ const EditRegistrationPage: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [profileImagePreview] = useState<File | null>(null);
   const [availableDays, setAvailableDays] = useState<string[]>([]);
-
+  const [selectedSkill, setSelectedSkill] = useState<string>("");
+  const skills = ["Cozinhar", "Limpeza", "Acompanhamento"];
 
   useEffect(() => {
     if (!id) return;
@@ -175,9 +177,24 @@ const EditRegistrationPage: React.FC = () => {
           onChange={(e) => setName(e.target.value)} />
         {errors.name && <div className="invalid-feedback">Nome é obrigatório</div>}
       </div>
-      {/* Continue substituindo os campos com classes do Bootstrap */}
       <SubmitButton label="Atualizar cadastro" />
     </form>
+    <div className="container mt-5">
+      <h3>Editar Cadastro</h3>
+      <Filters
+        filters={[
+          {
+            label: "Selecione suas habilidades:",
+            value: selectedSkill,
+            options: [
+              { label: "Todas as habilidades", value: "" },
+              ...skills.map((skill) => ({ label: skill, value: skill })),
+            ],
+            onChange: setSelectedSkill,
+          },
+        ]}
+      />
+    </div>
     </>
   );
 };

@@ -7,7 +7,7 @@ import BenefitsForHelpers from "../components/BenefitsForHelpers";
 import { useUser } from "../utils/UserContext";
 import JoinButton from "../components/JoinButton";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   interface Helper {
     name: string;
     birthDate: string;
@@ -61,7 +61,7 @@ const HomePage = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "hsl(11deg 59.61% 65%)"}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--highlight-color)"}
                 >
-                Conheça nossos cadastrados
+                Conhecer usuários cadastrados
                 </Link>
             )}
           </div>

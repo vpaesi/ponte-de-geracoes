@@ -3,6 +3,10 @@ import axios from "axios";
 import urlFetch from "../components/Fetch";
 import { Link } from "react-router-dom";
 import { useUser } from "../utils/UserContext";
+import Filters from "../components/Filters";
+import UserCard from "../components/UserCard";
+import PaginationControls from "../components/PaginationControls";
+
 interface Address {
   city: string;
   zipCode: string;
@@ -33,6 +37,14 @@ const ProfilePage: React.FC = () => {
   const { id, userType } = user || {};
   const userId = id;
 
+  const [selectedSkill, setSelectedSkill] = useState<string>("");
+  const [selectedConnection, setSelectedConnection] = useState<string>("");
+  const [page, setPage] = useState<number>(0);
+  const totalPages = 5;
+
+  const skills = ["Comunicação", "Empatia", "Resolução de Problemas"];
+  const connectionTypes = ["Amigos", "Mentores", "Ajudados"];
+
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
@@ -53,8 +65,55 @@ const ProfilePage: React.FC = () => {
     return <div>Carregando perfil...</div>;
   }
 
+  const userConnections = [
+    {
+      id: 1,
+      name: "João Silva",
+      birthDate: "1980-05-15",
+      profileImageUrl: "joao.jpg",
+      address: { city: "Porto Alegre" },
+      aboutYou: "Gosto de ajudar idosos com tarefas do dia a dia.",
+      availableDays: ["Segunda", "Quarta"],
+    },
+    {
+      id: 2,
+      name: "Maria Oliveira",
+      birthDate: "1990-08-20",
+      profileImageUrl: "maria.jpg",
+      address: { city: "Canoas" },
+      aboutYou: "Tenho experiência em cuidados com idosos.",
+      availableDays: ["Terça", "Quinta"],
+    },
+  ];
+
   return (
     <><div className="container mt-5">
+      <h3>Perfil do Usuário</h3>
+      <Filters
+        filters={[
+          {
+            label: "Filtrar por habilidade:",
+            value: selectedSkill,
+            options: [
+              { label: "Todas as habilidades", value: "" },
+              ...skills.map((skill) => ({ label: skill, value: skill })),
+            ],
+            onChange: setSelectedSkill,
+          },
+          {
+            label: "Filtrar por conexão:",
+            value: selectedConnection,
+            options: [
+              { label: "Todas as conexões", value: "" },
+              ...connectionTypes.map((connectionType) => ({
+                label: connectionType,
+                value: connectionType,
+              })),
+            ],
+            onChange: setSelectedConnection,
+          },
+        ]}
+      />
       <div className="text-center mb-4">
         <img
           src={userProfile.profileImageUrl}
@@ -135,7 +194,16 @@ const ProfilePage: React.FC = () => {
             <b>Disponível para ajudar:</b> {userProfile.available ? "Sim" : "Não"}
           </p>
         </div>
-      </div></>
+      </div><div className="row">
+        {userConnections.map((connection) => (
+          <UserCard key={connection.id} person={connection} />
+        ))}
+      </div><PaginationControls
+        page={page}
+        totalPages={totalPages}
+        setPage={setPage}
+        prevText="Página Anterior"
+        nextText="Próxima Página" /></>
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useUser } from "../utils/UserContext";
 import { useNavigate } from "react-router-dom";
 import SubmitButton from "../components/SubmitButton";
+import JoinButton from "../components/JoinButton";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -113,9 +114,7 @@ const Login: React.FC = () => {
       <div className="text-center mt-3"></div>
       <p>
         Ainda não possui cadastro?{" "}
-        <a href="/register" className="text-decoration-none">
-          Cadastre-se
-        </a>
+        <JoinButton text="Ainda não tem uma conta? Cadastre-se!" link="/register" />
       </p>
     </div>
   </div>
