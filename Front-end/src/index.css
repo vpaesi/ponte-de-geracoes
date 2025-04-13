@@ -4,6 +4,33 @@
     --highlight-color: hsl(11deg 59.61% 75.95%);
 }
 
+.navbar-toggler {
+    border: 2px solid var(--highlight-color);
+}
+
+.navbar-collapse {
+    position: relative;
+    top: auto;
+    right: auto;
+    background-color: white;
+    width: auto;
+    z-index: 1050;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    flex-direction: column;
+}
+
+.navbar-nav .nav-link {
+    color: var(--highlight-color);
+}
+
+.navbar-nav .nav-link:hover {
+    color: black;
+}
+
 html {
     font-size: 14px;
 }
