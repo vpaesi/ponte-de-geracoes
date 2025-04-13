@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-light min-vh-100">
+    <div className="min-vh-100">
       <section className="container d-flex flex-column flex-md-row align-items-center justify-content-between py-5 px-3">
         <div className="text-center text-md-start">
           <h1 className="display-4 fw-bold text-dark">
