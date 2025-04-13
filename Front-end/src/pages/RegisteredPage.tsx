@@ -40,7 +40,6 @@ const RegisteredPage: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<string>("helper");
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Fetch de cidades baseado em registros disponíveis no banco
   useEffect(() => {
     const fetchCities = async () => {
       try {
@@ -81,7 +80,6 @@ const RegisteredPage: React.FC = () => {
     fetchCities();
   }, []);
 
-  // Fetch dos dados filtrados
   useEffect(() => {
     const fetchFilteredData = async () => {
       try {
@@ -122,12 +120,32 @@ const RegisteredPage: React.FC = () => {
       </div>
 
       <Filters
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-        selectedCity={selectedCity}
-        setSelectedCity={setSelectedCity}
-        setPage={setPage}
-        cities={cities}
+        filters={[
+          {
+            label: "Filtrar por tipo de usuário:",
+            value: selectedUser,
+            options: [
+              { label: "Ajudados", value: "assisted" },
+              { label: "Ajudantes", value: "helper" },
+            ],
+            onChange: (value) => {
+              setSelectedUser(value);
+              setPage(0);
+            },
+          },
+          {
+            label: "Filtrar por cidade:",
+            value: selectedCity,
+            options: [
+              { label: "Todas as cidades", value: "" },
+              ...cities.map((city) => ({ label: city, value: city })),
+            ],
+            onChange: (value) => {
+              setSelectedCity(value);
+              setPage(0);
+            },
+          },
+        ]}
       />
 
       <div className="row">

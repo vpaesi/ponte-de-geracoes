@@ -5,6 +5,7 @@ import urlFetch from "../components/Fetch";
 import BenefitsForAssisted from "../components/BenefitsForAssisted";
 import BenefitsForHelpers from "../components/BenefitsForHelpers";
 import { useUser } from "../utils/UserContext";
+import JoinButton from "../components/JoinButton";
 
 const HomePage = () => {
   interface Helper {
@@ -48,12 +49,7 @@ const HomePage = () => {
           </p>
           <div className="mt-4">
             {userType === "default" ? (
-              <Link
-                to="/register"
-                className="btn btn-primary btn-lg"
-              >
-                Suba agora nessa ponte
-              </Link>
+              <JoinButton text="Cadastre-se agora!" link="/register" />
             ) : (
                 <Link
                 to="/registered"

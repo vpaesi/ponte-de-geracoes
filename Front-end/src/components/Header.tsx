@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const navbarRef = useRef<HTMLDivElement>(null);
-  const location = useLocation(); // Hook para obter a rota atual
+  const location = useLocation();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -76,7 +76,7 @@ const Header = () => {
                 </Link>
               </li>
             )}
-            {location.pathname !== "/registered" && ( // Oculta "Usuários" na página de usuários
+            {location.pathname !== "/registered" && (
               <li className="nav-item">
                 <Link className="nav-link" to="/registered">
                   Usuários

@@ -4,12 +4,16 @@ interface PaginationControlsProps {
   page: number;
   totalPages: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
+  prevText?: string;
+  nextText?: string;
 }
 
 const PaginationControls: React.FC<PaginationControlsProps> = ({
   page,
   totalPages,
   setPage,
+  prevText = "Anterior",
+  nextText = "Próxima",
 }) => {
   return (
     <div className="d-flex justify-content-center align-items-center my-4">
@@ -18,7 +22,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
         onClick={() => setPage(page - 1)}
         disabled={page === 0}
       >
-        <i className="fas fa-chevron-left"></i> Anterior
+        <i className="fas fa-chevron-left"></i> {prevText}
       </button>
 
       <span>
@@ -30,7 +34,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
         onClick={() => setPage(page + 1)}
         disabled={page + 1 >= totalPages}
       >
-        Próxima <i className="fas fa-chevron-right"></i>
+        {nextText} <i className="fas fa-chevron-right"></i>
       </button>
     </div>
   );

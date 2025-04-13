@@ -17,9 +17,10 @@ interface Registered {
 
 interface UserCardProps {
   person: Registered;
+  showContactButton?: boolean;
 }
 
-const UserCard: React.FC<UserCardProps> = ({ person }) => {
+const UserCard: React.FC<UserCardProps> = ({ person, showContactButton = true }) => {
   return (
     <div className="col-md-4 mb-4">
       <div className="card h-100">
@@ -46,9 +47,11 @@ const UserCard: React.FC<UserCardProps> = ({ person }) => {
           <p>
             <b>Disponível nos dias:</b> {person.availableDays.join(", ")}
           </p>
-          <Link to={`/profile/${person.id}`} className="btn btn-primary w-100">
-            Entrar em contato
-          </Link>
+          {showContactButton && (
+            <Link to={`/profile/${person.id}`} className="btn btn-primary w-100">
+              Entrar em contato
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ const RegisterPage: React.FC = () => {
       password,
       confirmPassword,
       dob: birthDate,
-      availableDays: [], // Added missing property
+      availableDays: [],
       address: {
         street,
         number,
