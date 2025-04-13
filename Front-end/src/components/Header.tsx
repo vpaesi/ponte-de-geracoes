@@ -1,10 +1,12 @@
 import logo from "../assets/logo.png";
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTheme } from "../utils/ThemeContext";
 
 const Header = () => {
   const navbarRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -85,6 +87,9 @@ const Header = () => {
             )}
           </ul>
         </div>
+        <button onClick={toggleTheme} className="btn btn-outline-secondary">
+          {theme === "light" ? "Modo Escuro" : "Modo Claro"}
+        </button>
       </div>
     </nav>
   );

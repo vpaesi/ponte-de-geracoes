@@ -4,6 +4,20 @@
     --highlight-color: hsl(11deg 59.61% 75.95%);
 }
 
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar-light.dark {
+    background-color: #333333;
+}
+
 .navbar-toggler {
     border: 2px solid var(--highlight-color);
 }
