@@ -36,20 +36,22 @@ const BenefitsForHelpers = () => {
   ];
 
   return (
-    <section className="benefits-section row">
-      {benefitsForHelpers.map((benefit, index) => (
-      <div key={index} className="col-md-4 mb-4">
-        <BenefitCard
-        title={
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img src={benefit.icon} alt="" style={{ marginRight: '8px' }} />
-          {benefit.title}
+    <section className="benefits-section container my-5">
+      <div className="row">
+        {benefitsForHelpers.map((benefit, index) => (
+          <div key={index} className="col-md-4 mb-4">
+            <BenefitCard
+              title={
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <img src={benefit.icon} alt="" className="benefit-icon" />
+                  {benefit.title}
+                </div>
+              }
+              description={benefit.description}
+            />
           </div>
-        }
-        description={benefit.description}
-        />
+        ))}
       </div>
-      ))}
     </section>
   );
 };

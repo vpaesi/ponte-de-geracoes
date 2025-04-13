@@ -31,8 +31,34 @@
     color: black;
 }
 
+.benefit-icon {
+    width: 24px; /* Define a largura do ícone */
+    height: 24px; /* Define a altura do ícone */
+    object-fit: contain; /* Garante que a imagem se ajuste ao tamanho sem distorção */
+    margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+}
+
+.benefit-header {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaçamento entre o ícone e o título */
+    max-width: 100%; /* Garante que o conteúdo não ultrapasse a largura do contêiner */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassar */
+    text-overflow: ellipsis; /* Adiciona reticências (...) ao texto que ultrapassar */
+    word-wrap: break-word; /* Permite quebra de linha para palavras longas */
+    white-space: normal; /* Permite que o texto quebre em várias linhas */
+}
+
 html {
     font-size: 14px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
 }
 
 @media (min-width: 768px) {

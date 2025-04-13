@@ -43,7 +43,7 @@ const BenefitsForAssisted = () => {
         <BenefitCard
           title={
           <div className="d-flex align-items-center">
-            <img src={benefit.icon} alt="" className="me-2" />
+            <img src={benefit.icon} alt="" className="benefit-icon" />
             {benefit.title}
           </div>
           }
