@@ -59,11 +59,11 @@ const HomePage = () => {
                 to="/registered"
                 className="btn btn-lg"
                 style={{ 
-                  backgroundColor: "hsl(11deg 59.61% 75.95%)", 
+                  backgroundColor: "var(--highlight-color)", 
                   transition: "background-color 0.3s ease" 
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "hsl(11deg 59.61% 65%)"}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "hsl(11deg 59.61% 75.95%)"}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--highlight-color)"}
                 >
                 Conheça nossos cadastrados
                 </Link>

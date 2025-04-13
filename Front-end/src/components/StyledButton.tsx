@@ -10,20 +10,20 @@ const StyledButton: React.FC<StyledButtonProps> = ({ onClick, children }) => {
     <button
       className="btn"
       style={{
-        color: "hsl(11deg 59.61% 75.95%)",
-        borderColor: "hsl(11deg 59.61% 75.95%)",
-        backgroundColor: "transparent",
+      color: "var(--highlight-color)",
+      borderColor: "var(--highlight-color)",
+      backgroundColor: "transparent",
       }}
       onClick={onClick}
       onMouseEnter={(e) => {
-        e.currentTarget.style.color = "white";
-        e.currentTarget.style.borderColor = "hsl(11deg 59.61% 75.95%)";
-        e.currentTarget.style.backgroundColor = "hsl(11deg 59.61% 75.95%)";
+      e.currentTarget.style.color = "white";
+      e.currentTarget.style.borderColor = "var(--highlight-color)";
+      e.currentTarget.style.backgroundColor = "var(--highlight-color)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "hsl(11deg 59.61% 75.95%)";
-        e.currentTarget.style.borderColor = "hsl(11deg 59.61% 75.95%)";
-        e.currentTarget.style.backgroundColor = "transparent";
+      e.currentTarget.style.color = "var(--highlight-color)";
+      e.currentTarget.style.borderColor = "var(--highlight-color)";
+      e.currentTarget.style.backgroundColor = "transparent";
       }}
     >
       {children}

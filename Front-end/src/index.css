@@ -1,1 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+    --highlight-color: hsl(11deg 59.61% 75.95%);
+}
