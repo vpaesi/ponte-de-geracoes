@@ -1,10 +1,33 @@
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const navbarRef = useRef<HTMLDivElement>(null);
+  const location = useLocation(); // Hook para obter a rota atual
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      navbarRef.current &&
+      !navbarRef.current.contains(event.target as Node)
+    ) {
+      const navbarToggler = document.querySelector(".navbar-toggler");
+      if (navbarToggler && navbarToggler.getAttribute("aria-expanded") === "true") {
+        navbarToggler.dispatchEvent(new Event("click"));
+      }
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
+      <div className="container" ref={navbarRef}>
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img src={logo} alt="Logo" height="40" className="me-2" />
           Ponte de Gerações
@@ -25,21 +48,41 @@ const Header = () => {
           id="navbarNav"
         >
           <ul className="navbar-nav text-end">
-            <li className="nav-item">
-              <Link className="nav-link" to="/register">
-                Cadastre-se
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                Sobre
-              </Link>
-            </li>
+            {location.pathname !== "/" && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+              </li>
+            )}
+            {location.pathname !== "/register" && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/register">
+                  Cadastre-se
+                </Link>
+              </li>
+            )}
+            {location.pathname !== "/login" && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
+            {location.pathname !== "/about" && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">
+                  Sobre
+                </Link>
+              </li>
+            )}
+            {location.pathname !== "/registered" && ( // Oculta "Usuários" na página de usuários
+              <li className="nav-item">
+                <Link className="nav-link" to="/registered">
+                  Usuários
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
