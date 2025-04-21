@@ -41,9 +41,8 @@ const Login: React.FC = () => {
   return (
     <><div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card shadow">
-    <div className="card-body">
+          <div className="card shadow" style={{ marginLeft: "5rem", marginRight: "5rem", width: "30rem", borderRadius: "1rem" }}>
+    <div className="card-body" style={{ padding: "2rem" }}>
       <h2 className="card-title text-center">ENTRE NA SUA CONTA</h2>
       <p className="text-center">Entre usando seu email e senha cadastrados</p>
       <form onSubmit={handleSubmit}>
@@ -103,22 +102,14 @@ const Login: React.FC = () => {
         <label htmlFor="rememberPassword" className="form-check-label">
           Lembrar minha senha
         </label>
-      </div>
-      <div className="mb-3 text-end">
-        <a href="#" className="text-decoration-none">
-          Esqueceu sua senha?
-        </a>
-      </div>
+      </div>      
       <SubmitButton label="Fazer Login" />
     </form>
+    
       <div className="text-center mt-3"></div>
-      <p>
-        Ainda não possui cadastro?{" "}
         <JoinButton text="Ainda não tem uma conta? Cadastre-se!" link="/register" />
-      </p>
     </div>
   </div>
-        </div>
       </div>
     </div></>
   );

@@ -18,11 +18,7 @@ const JoinButton: React.FC<JoinButtonProps> = ({
     <div className="text-center mt-4">
       <Link
         to={link}
-        className="btn"
-        style={{
-          backgroundColor: "var(--highlight-color)",
-          color: "white",
-        }}
+        className="join-button"
       >
         {text}
       </Link>
