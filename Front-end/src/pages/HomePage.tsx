@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
           <h1 className="display-4 fw-bold text-dark">
             Pontes que aproximam e transformam vidas.
           </h1>
-          <p className="text-secondary mt-3">
+          <p>
             Ponte de Gerações é uma plataforma gaúcha que conecta idosos com
             necessidades específicas a pessoas dispostas a ajudar.
           </p>
@@ -53,13 +53,7 @@ const HomePage: React.FC = () => {
             ) : (
                 <Link
                 to="/registered"
-                className="btn btn-lg"
-                style={{ 
-                  backgroundColor: "var(--highlight-color)", 
-                  transition: "background-color 0.3s ease" 
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "hsl(11deg 59.61% 65%)"}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "var(--highlight-color)"}
+                className="btn btn-lg"           
                 >
                 Conhecer usuários cadastrados
                 </Link>
@@ -90,7 +84,7 @@ const HomePage: React.FC = () => {
           }))}
         />
         <div className="text-center mt-3">
-          <Link to={"/registered"} className="btn btn-link">
+          <Link to={"/registered"} className="btn">
             Conheça mais ajudantes
           </Link>
         </div>

@@ -6,7 +6,7 @@ const AboutPage: React.FC = () => {
     <div className="container mt-5">
       <section className="text-center mb-5">
         <h1>Sobre o Ponte de Gerações</h1>
-        <p className="text-secondary mt-3">
+        <p>
           O Ponte de Gerações é uma plataforma que conecta idosos com
           necessidades específicas a pessoas dispostas a ajudar, promovendo
           solidariedade e impacto social.
